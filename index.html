@@ -1,151 +1,143 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MKONGE NET ISP</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MKONGE NET ISP</title>
 
-<style>
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #0b1220;
-    color: #fff;
-}
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0b1220;
+      color: white;
+    }
 
-header {
-    background: linear-gradient(90deg, #0d6efd, #00c6ff);
-    padding: 20px;
-    text-align: center;
-}
+    header {
+      background: linear-gradient(90deg, #0ea5e9, #2563eb);
+      padding: 20px;
+      text-align: center;
+    }
 
-header h1 {
-    margin: 0;
-    font-size: 28px;
-}
+    header h1 {
+      margin: 0;
+      font-size: 28px;
+    }
 
-nav {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    background: #111a2e;
-    padding: 10px;
-}
+    header p {
+      margin: 5px 0 0;
+      opacity: 0.9;
+    }
 
-nav a {
-    color: white;
-    text-decoration: none;
-    padding: 8px 12px;
-    border-radius: 5px;
-}
+    .container {
+      padding: 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
 
-nav a:hover {
-    background: #0d6efd;
-}
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 15px;
+      margin-top: 20px;
+    }
 
-section {
-    padding: 40px 20px;
-    max-width: 1000px;
-    margin: auto;
-}
+    .card {
+      background: #111a2e;
+      padding: 15px;
+      border-radius: 10px;
+      border: 1px solid #1f2a44;
+    }
 
-.card {
-    background: #16213e;
-    padding: 20px;
-    margin: 15px 0;
-    border-radius: 10px;
-}
+    .card h3 {
+      margin-top: 0;
+      color: #38bdf8;
+    }
 
-.button {
-    display: inline-block;
-    padding: 10px 15px;
-    background: #00c6ff;
-    color: black;
-    text-decoration: none;
-    border-radius: 5px;
-    margin-top: 10px;
-}
+    .price {
+      font-size: 22px;
+      font-weight: bold;
+      margin: 10px 0;
+    }
 
-footer {
-    text-align: center;
-    padding: 15px;
-    background: #111a2e;
-    margin-top: 20px;
-}
-</style>
+    .btn {
+      display: inline-block;
+      padding: 10px 15px;
+      background: #2563eb;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      margin-top: 10px;
+    }
 
+    .btn:hover {
+      background: #1d4ed8;
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px;
+      margin-top: 30px;
+      font-size: 13px;
+      opacity: 0.7;
+    }
+
+    .contact {
+      margin-top: 20px;
+      padding: 15px;
+      background: #111a2e;
+      border-radius: 10px;
+    }
+  </style>
 </head>
 
 <body>
 
 <header>
-    <h1>MKONGE NET ISP</h1>
-    <p>Fast • Reliable • Affordable Internet in Dar es Salaam</p>
+  <h1>MKONGE NET ISP</h1>
+  <p>Fast • Reliable • Affordable Internet in Tanzania</p>
 </header>
 
-<nav>
-    <a href="#services">Services</a>
-    <a href="#locations">Locations</a>
-    <a href="#about">About</a>
-    <a href="#contact">Contact</a>
-</nav>
+<div class="container">
 
-<section id="about">
+  <h2>Internet Packages</h2>
+
+  <div class="cards">
+
     <div class="card">
-        <h2>About Us</h2>
-        <p>
-            MKONGE NET is a local internet service provider delivering fast and stable internet
-            connectivity across Dar es Salaam. We specialize in home internet, business connectivity,
-            and hotspot voucher systems.
-        </p>
+      <h3>Starter</h3>
+      <div class="price">1,000 TZS</div>
+      <p>1 Hour Unlimited Access</p>
+      <a class="btn" href="#">Buy Voucher</a>
     </div>
-</section>
 
-<section id="services">
     <div class="card">
-        <h2>Our Services</h2>
-
-        <p>✔ Home Internet Packages</p>
-        <p>✔ Business Internet Solutions</p>
-        <p>✔ WiFi Hotspot Voucher System</p>
-        <p>✔ Installation & Maintenance</p>
-
-        <a class="button" href="#">View Plans</a>
+      <h3>Daily Plan</h3>
+      <div class="price">2,000 TZS</div>
+      <p>24 Hours Unlimited Access</p>
+      <a class="btn" href="#">Buy Voucher</a>
     </div>
-</section>
 
-<section id="locations">
     <div class="card">
-        <h2>Our Coverage Areas</h2>
-        <p>📍 Bunju</p>
-        <p>📍 Makumbusho</p>
-        <p>📍 Chamazi</p>
-        <p>📍 Dar es Salaam Wide Coverage</p>
+      <h3>Weekly Plan</h3>
+      <div class="price">10,000 TZS</div>
+      <p>7 Days Unlimited Access</p>
+      <a class="btn" href="#">Buy Voucher</a>
     </div>
-</section>
 
-<section id="system">
-    <div class="card">
-        <h2>Client Login System</h2>
-        <p>Access your internet account or redeem voucher below:</p>
+  </div>
 
-        <a class="button" href="http://your-hotspot-login-link">Login to Internet System</a>
-    </div>
-</section>
+  <div class="contact">
+    <h3>Contact Us</h3>
+    <p>Phone: 0658410470</p>
+    <p>Location: Dar es Salaam, Tanzania</p>
+    <p>Support: WhatsApp available</p>
+  </div>
 
-<section id="contact">
-    <div class="card">
-        <h2>Contact Us</h2>
-        <p>📞 0658410470</p>
-        <p>📍 Dar es Salaam, Tanzania</p>
-        <p>💬 WhatsApp: 0658410470</p>
-
-        <a class="button" href="https://wa.me/255658410470">Chat on WhatsApp</a>
-    </div>
-</section>
+</div>
 
 <footer>
-    <p>© 2026 MKONGE NET ISP. All rights reserved.</p>
+  © 2026 MKONGE NET ISP — All Rights Reserved
 </footer>
 
 </body>
