@@ -2,62 +2,24 @@
 <html>
 <head>
   <title>MKONGE NET Login</title>
-  <style>
-    body {
-      font-family: Arial;
-      text-align: center;
-      background: #f2f2f2;
-      padding: 50px;
-    }
-
-    .box {
-      background: white;
-      padding: 20px;
-      border-radius: 10px;
-      width: 300px;
-      margin: auto;
-      box-shadow: 0px 0px 10px #ccc;
-    }
-
-    input {
-      width: 90%;
-      padding: 10px;
-      margin: 10px 0;
-    }
-
-    button {
-      padding: 10px;
-      width: 95%;
-      background: green;
-      color: white;
-      border: none;
-    }
-  </style>
 </head>
 
 <body>
-
-<div class="box">
-  <h2>MKONGE NET Login</h2>
+  <h2>MKONGE NET LOGIN PAGE</h2>
 
   <input type="text" id="voucher" placeholder="Enter Voucher Code">
+  <button onclick="login()">Login</button>
 
-  <button onclick="login()">Connect</button>
-</div>
+  <script>
+    function login() {
+      let code = document.getElementById("voucher").value;
 
-<script>
-function login() {
-  let code = document.getElementById("voucher").value.trim();
-
-  let validVouchers = ["1234", "5678", "FREE2026"];
-
-  if(validVouchers.includes(code)) {
-    alert("Access Granted - Internet Activated");
-  } else {
-    alert("Invalid Voucher");
-  }
-}
-</script>
-
+      if(code === "1234" || code === "FREE2026") {
+        alert("ACCESS GRANTED");
+      } else {
+        alert("INVALID VOUCHER");
+      }
+    }
+  </script>
 </body>
 </html>
