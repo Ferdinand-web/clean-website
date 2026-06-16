@@ -5,7 +5,10 @@ async function login() {
   let response = await fetch("vouchers.txt");
   let text = await response.text();
 
-  let vouchers = text.split("\n").map(v => v.trim());
+  let vouchers = text
+    .split("\n")
+    .map(v => v.trim())
+    .filter(v => v !== "");
 
   if(vouchers.includes(code)) {
     alert("ACCESS GRANTED - INTERNET ACTIVE");
