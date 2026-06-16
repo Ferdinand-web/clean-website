@@ -1,88 +1,16 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>MKONGE NET Login</title>
-
-  <style>
-    body {
-      font-family: Arial;
-      background: linear-gradient(to right, #1e3c72, #2a5298);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
-    }
-
-    .box {
-      background: white;
-      padding: 25px;
-      border-radius: 12px;
-      width: 320px;
-      text-align: center;
-      box-shadow: 0 0 15px rgba(0,0,0,0.3);
-    }
-
-    h2 {
-      margin-bottom: 15px;
-    }
-
-    input {
-      width: 90%;
-      padding: 12px;
-      margin: 10px 0;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-    }
-
-    button {
-      width: 95%;
-      padding: 12px;
-      background: #28a745;
-      color: white;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-    }
-
-    button:hover {
-      background: #218838;
-    }
-
-    .msg {
-      margin-top: 10px;
-      font-weight: bold;
-    }
-  </style>
-</head>
-
-<body>
-
-<div class="box">
-  <h2>MKONGE NET LOGIN</h2>
-
-  <input type="text" id="voucher" placeholder="Enter Voucher Code">
-
-  <button onclick="login()">CONNECT</button>
-
-  <div class="msg" id="msg"></div>
-</div>
-
 <script>
-function login() {
+async function login() {
   let code = document.getElementById("voucher").value.trim();
 
-  let valid = ["1234", "5678", "FREE2026"];
+  let response = await fetch("vouchers.txt");
+  let text = await response.text();
 
-  if(valid.includes(code)) {
-    document.getElementById("msg").style.color = "green";
-    document.getElementById("msg").innerText = "ACCESS GRANTED - INTERNET ACTIVE";
+  let vouchers = text.split("\n").map(v => v.trim());
+
+  if(vouchers.includes(code)) {
+    alert("ACCESS GRANTED - INTERNET ACTIVE");
   } else {
-    document.getElementById("msg").style.color = "red";
-    document.getElementById("msg").innerText = "INVALID VOUCHER";
+    alert("INVALID VOUCHER");
   }
 }
 </script>
-
-</body>
-</html>
