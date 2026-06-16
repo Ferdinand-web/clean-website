@@ -5,197 +5,408 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MKONGE NET ISP</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
 <style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: Arial, sans-serif;
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Poppins,sans-serif;
+scroll-behavior:smooth;
 }
 
-body {
-  color: white;
-  background: linear-gradient(-45deg, #0f172a, #1e3a8a, #0ea5e9, #0f172a);
-  background-size: 400% 400%;
-  animation: bgMove 12s ease infinite;
-  overflow-x: hidden;
+body{
+background:#050b18;
+color:white;
+overflow-x:hidden;
 }
 
-/* Background animation */
-@keyframes bgMove {
-  0% {background-position: 0% 50%;}
-  50% {background-position: 100% 50%;}
-  100% {background-position: 0% 50%;}
+/* NAV */
+nav{
+position:fixed;
+top:0;
+width:100%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:12px 8%;
+background:rgba(0,0,0,0.6);
+backdrop-filter:blur(12px);
+z-index:1000;
 }
 
-/* Floating circles */
-.circle {
-  position: absolute;
-  border-radius: 50%;
-  opacity: 0.15;
-  background: white;
-  animation: float 10s infinite linear;
+.logo{
+display:flex;
+align-items:center;
+gap:10px;
+color:#00e5ff;
+font-weight:700;
 }
 
-.circle:nth-child(1){width:80px;height:80px;left:10%;top:20%;}
-.circle:nth-child(2){width:120px;height:120px;left:70%;top:30%;}
-.circle:nth-child(3){width:60px;height:60px;left:40%;top:70%;}
+.logo span{font-size:18px}
 
-@keyframes float {
-  0% {transform: translateY(0);}
-  50% {transform: translateY(-40px);}
-  100% {transform: translateY(0);}
+nav ul{
+display:flex;
+gap:18px;
+list-style:none;
 }
 
-/* Navbar */
-nav {
-  display: flex;
-  justify-content: space-between;
-  padding: 20px 50px;
-  background: rgba(0,0,0,0.3);
-  backdrop-filter: blur(10px);
-  position: sticky;
-  top: 0;
+nav a{
+color:white;
+text-decoration:none;
+font-weight:500;
+transition:.3s;
 }
 
-.logo {
-  font-size: 22px;
-  font-weight: bold;
-  color: #38bdf8;
-  animation: glow 2s infinite alternate;
+nav a:hover{color:#00e5ff}
+
+/* HERO */
+.hero{
+height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+padding:20px;
+position:relative;
 }
 
-@keyframes glow {
-  from {text-shadow: 0 0 5px #38bdf8;}
-  to {text-shadow: 0 0 20px #0ea5e9;}
+.hero::before{
+content:"";
+position:absolute;
+inset:0;
+background:
+linear-gradient(rgba(5,11,24,0.6),rgba(5,11,24,0.95)),
+url('https://images.unsplash.com/photo-1526498460520-4c246339dccb?auto=format&fit=crop&w=1600&q=80');
+background-size:cover;
+background-position:center;
+z-index:-1;
 }
 
-nav a {
-  color: white;
-  margin-left: 20px;
-  text-decoration: none;
+.hero h1{
+font-size:3rem;
+color:#00e5ff;
 }
 
-/* Hero section */
-.hero {
-  height: 90vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  position: relative;
-  padding: 20px;
+.hero p{
+margin:15px 0;
+opacity:0.9;
 }
 
-.hero h1 {
-  font-size: 50px;
-  animation: slideIn 2s ease;
+.btn{
+display:inline-block;
+padding:12px 28px;
+background:#00e5ff;
+color:#000;
+border-radius:30px;
+text-decoration:none;
+font-weight:600;
+transition:.3s;
 }
 
-.hero p {
-  margin-top: 10px;
-  font-size: 18px;
-  opacity: 0.8;
+.btn:hover{
+transform:translateY(-5px);
+box-shadow:0 0 20px #00e5ff;
 }
 
-@keyframes slideIn {
-  from {transform: translateY(-50px); opacity:0;}
-  to {transform: translateY(0); opacity:1;}
+/* SECTIONS */
+section{
+padding:85px 8%;
 }
 
-.btn {
-  margin-top: 20px;
-  padding: 12px 25px;
-  background: #0ea5e9;
-  border: none;
-  color: white;
-  border-radius: 25px;
-  cursor: pointer;
-  transition: 0.3s;
+.title{
+text-align:center;
+font-size:2.2rem;
+color:#00e5ff;
+margin-bottom:40px;
 }
 
-.btn:hover {
-  transform: scale(1.1);
-  background: #0284c7;
+/* PACKAGES */
+.packages{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+gap:20px;
 }
 
-/* Sections */
-section {
-  padding: 60px 20px;
-  text-align: center;
+.card{
+background:rgba(255,255,255,0.04);
+backdrop-filter:blur(15px);
+padding:25px;
+border-radius:15px;
+border:1px solid rgba(0,229,255,0.15);
+text-align:center;
+transition:.3s;
 }
 
-.card {
-  display: inline-block;
-  background: rgba(255,255,255,0.1);
-  padding: 20px;
-  margin: 10px;
-  border-radius: 15px;
-  width: 250px;
-  backdrop-filter: blur(8px);
-  transition: 0.3s;
+.card:hover{
+transform:translateY(-8px);
 }
 
-.card:hover {
-  transform: translateY(-10px);
+/* ABOUT */
+.about{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:25px;
+align-items:center;
 }
 
-/* Footer */
-footer {
-  padding: 20px;
-  text-align: center;
-  background: rgba(0,0,0,0.4);
+.about img{
+width:100%;
+border-radius:15px;
+}
+
+/* STATS */
+.stats{
+display:flex;
+gap:15px;
+flex-wrap:wrap;
+margin-top:20px;
+}
+
+.stat{
+flex:1;
+text-align:center;
+padding:15px;
+background:rgba(255,255,255,0.04);
+border-radius:10px;
+}
+
+.stat h2{color:#00e5ff}
+
+/* =========================
+   GALLERY WITH TRANSITION
+========================= */
+
+.gallery-wrapper{
+position:relative;
+max-width:900px;
+margin:auto;
+overflow:hidden;
+border-radius:15px;
+}
+
+.gallery-slide{
+display:none;
+animation:fade 1s ease-in-out;
+}
+
+.gallery-slide img{
+width:100%;
+height:450px;
+object-fit:cover;
+border-radius:15px;
+}
+
+@keyframes fade{
+from{opacity:0;transform:scale(1.05);}
+to{opacity:1;transform:scale(1);}
+}
+
+/* DOTS */
+.dots{
+text-align:center;
+margin-top:15px;
+}
+
+.dot{
+height:10px;
+width:10px;
+margin:0 4px;
+display:inline-block;
+border-radius:50%;
+background:#555;
+cursor:pointer;
+}
+
+.active-dot{
+background:#00e5ff;
+}
+
+/* CONTACT */
+.contact{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:15px;
+}
+
+.box{
+background:rgba(255,255,255,0.04);
+padding:18px;
+border-radius:10px;
+text-align:center;
+}
+
+/* WHATSAPP */
+.whatsapp{
+position:fixed;
+bottom:20px;
+right:20px;
+width:60px;
+height:60px;
+background:#25D366;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:28px;
+text-decoration:none;
+color:white;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+.hero h1{font-size:2.2rem}
+nav ul{display:none}
 }
 </style>
 </head>
 
 <body>
 
-<!-- floating background elements -->
-<div class="circle"></div>
-<div class="circle"></div>
-<div class="circle"></div>
-
 <!-- NAV -->
 <nav>
-  <div class="logo">⚡ MKONGE NET ISP</div>
-  <div>
-    <a href="#">Home</a>
-    <a href="#">Packages</a>
-    <a href="#">About</a>
-    <a href="#">Contact</a>
-  </div>
+
+<div class="logo">
+
+<svg width="38" height="38" viewBox="0 0 64 64">
+<path d="M32 6 L18 58 H46 L32 6Z" fill="#00e5ff"/>
+<circle cx="32" cy="36" r="3" fill="#00e5ff">
+<animate attributeName="r" values="2;4;2" dur="1.5s" repeatCount="indefinite"/>
+</circle>
+</svg>
+
+<span>MKONGE NET</span>
+
+</div>
+
+<ul>
+<li><a href="#home">Home</a></li>
+<li><a href="#packages">Packages</a></li>
+<li><a href="#gallery">Gallery</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+
 </nav>
 
 <!-- HERO -->
-<div class="hero">
-  <h1>Fast & Reliable Internet</h1>
-  <p>MKONGE NET ISP - Powering Digital Connectivity in Tanzania</p>
-  <button class="btn">Get Connected</button>
+<section class="hero" id="home">
+<div>
+<h1>Reliable High-Speed Internet</h1>
+<p>Professional ISP services across Dar es Salaam.</p>
+<a class="btn" href="#packages">View Packages</a>
 </div>
+</section>
 
 <!-- PACKAGES -->
-<section>
-  <h2>Our Packages</h2>
-  <div class="card">💡 Basic Plan<br>10Mbps</div>
-  <div class="card">⚡ Standard Plan<br>25Mbps</div>
-  <div class="card">🚀 Premium Plan<br>50Mbps</div>
+<section id="packages">
+<h2 class="title">Packages</h2>
+
+<div class="packages">
+<div class="card"><h3>Home</h3><p>25,000 TZS</p></div>
+<div class="card"><h3>Business</h3><p>50,000 TZS</p></div>
+<div class="card"><h3>Enterprise</h3><p>100,000 TZS</p></div>
+</div>
+</section>
+
+<!-- GALLERY (SLIDESHOW) -->
+<section id="gallery">
+<h2 class="title">Gallery</h2>
+
+<div class="gallery-wrapper">
+
+<div class="gallery-slide">
+<img src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAHOUOnh3avV8L80G6LXSLy5TBe3Fam_uaniW3Ob1HQoSLx6q9NQW5JSnxwwVbQb44NfREXhC-Sdbc9RKoAkizi4pV0DaIxJciSdNTUbIk-dmXWjvl2uLzhYfIhSVSbKNA2A9dTw9XNry1NQ=s1360-w1360-h1020-rw">
+</div>
+
+<div class="gallery-slide">
+<img src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAEbJXYyROePzul_92bohcolRtkJhjBbIA93yhknNXUWnmKDO25qoNirBcLifAAZOJm3T3nTwE_mzuoxgY6bjGVC5XCcVL2zQ20JqDeoPNsQpis-gvdAY-PrVeiUyyMK-myTLss_3tyLliY=w114-h190-n-k-no-nu">
+</div>
+
+<div class="gallery-slide">
+<img src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAGZcRtKmIkBmjVnnnCkn8tPlnxiEjMamIjfNyL4bigpmx6PPb8-V0E-d7oZJoBjZ17FSj9OurhoYc1iHP6r5zkiQzkQv_cKOV-kFrAw5dLC0xZ2KZW5bfmLib-gTeIDZ_KbKeqhrtRCd7nV=s1360-w1360-h1020-rw">
+</div>
+
+<div class="gallery-slide">
+<img src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAFMGKQp5Qh7S4nsP9rrFSmMKh3b22Qty_TcIz0GB1R0ILVRyvhhtODxuuAa4QqvDsL5-i8KrltxPKr6el03FaKloROlvWZ3Uqkj_C95bsHNPSTFcu3Sy_qFnq5lSxOGASu74QMFKX8sNek=s1360-w1360-h1020-rw">
+</div>
+
+<div class="gallery-slide">
+<img src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAHyYXS2Ns6hWWVgNru-ExfHq8DRaL2wV9l4rPgebEqImZbERdJX-4vFiLoJfaJubfFCcAwwL5SQgo6OKCSh6My1SOwMjkcKM1MBQ2tAwTn_0vQ_v5eKCbubJKN5CNyBoNjiOgzaoDRoBhvF=s1360-w1360-h1020-rw">
+</div>
+
+</div>
+
+<div class="dots">
+<span class="dot"></span>
+<span class="dot"></span>
+<span class="dot"></span>
+<span class="dot"></span>
+<span class="dot"></span>
+</div>
+
 </section>
 
 <!-- ABOUT -->
-<section>
-  <h2>About Us</h2>
-  <p>
-    MKONGE NET ISP provides affordable, fast and stable internet services 
-    across Dar es Salaam including Bunju, Chamazi, Makumbusho.
-  </p>
+<section id="about">
+<h2 class="title">About Us</h2>
+
+<div class="about">
+<img src="https://images.unsplash.com/photo-1581091870622-1e7d7b0a5a12?auto=format&fit=crop&w=900&q=80">
+
+<div>
+<p>MKONGE NET delivers reliable ISP services using modern telecom infrastructure.</p>
+
+<div class="stats">
+<div class="stat"><h2>500+</h2><p>Clients</p></div>
+<div class="stat"><h2>99%</h2><p>Uptime</p></div>
+<div class="stat"><h2>24/7</h2><p>Support</p></div>
+</div>
+
+</div>
+</div>
 </section>
 
-<!-- FOOTER -->
-<footer>
-  © 2026 MKONGE NET ISP | All Rights Reserved
-</footer>
+<!-- CONTACT -->
+<section id="contact">
+<h2 class="title">Contact</h2>
+
+<div class="contact">
+<div class="box">📞 0658 410 470</div>
+<div class="box">📍 Dar es Salaam</div>
+<div class="box">✉ info@mkongenet.co.tz</div>
+</div>
+</section>
+
+<a class="whatsapp" href="https://wa.me/255658410470">☎</a>
+
+<script>
+let index = 0;
+const slides = document.querySelectorAll(".gallery-slide");
+const dots = document.querySelectorAll(".dot");
+
+function showSlide(n){
+slides.forEach(s => s.style.display="none");
+dots.forEach(d => d.classList.remove("active-dot"));
+
+slides[n].style.display="block";
+dots[n].classList.add("active-dot");
+}
+
+function nextSlide(){
+index++;
+if(index >= slides.length) index = 0;
+showSlide(index);
+}
+
+dots.forEach((dot,i)=>{
+dot.onclick = ()=>{index=i; showSlide(i);}
+});
+
+showSlide(0);
+setInterval(nextSlide, 3000);
+</script>
 
 </body>
 </html>
