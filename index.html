@@ -8,145 +8,130 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Poppins,sans-serif;
-scroll-behavior:smooth;
-}
-
-body{
-background:#050b18;
-color:white;
-overflow-x:hidden;
-padding-top:90px;
-}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Poppins,sans-serif;scroll-behavior:smooth;}
+body{background:#050b18;color:white;overflow-x:hidden;padding-top:90px;}
 
 /* HEADER */
 .header{
-position:fixed;
-top:0;
-width:100%;
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:10px 8%;
+position:fixed;top:0;width:100%;
+display:flex;justify-content:space-between;
+align-items:center;padding:10px 8%;
 background:rgba(0,0,0,0.7);
 backdrop-filter:blur(12px);
 z-index:1000;
 }
 
-.logo-container{
-display:flex;
-align-items:center;
-gap:15px;
-}
+.logo-container{display:flex;align-items:center;gap:15px;}
 
 .site-logo{
-width:55px;
-height:55px;
-border-radius:10px;
-object-fit:cover;
+width:55px;height:55px;border-radius:10px;object-fit:cover;
 border:2px solid #00e5ff;
 }
 
-.site-title{
-font-size:20px;
-color:#00e5ff;
-font-weight:700;
+.site-title{font-size:20px;color:#00e5ff;font-weight:700;}
+
+/* BUTTONS */
+.lang-btn{
+background:#00e5ff;border:none;padding:6px 12px;border-radius:20px;
+font-weight:bold;cursor:pointer;
 }
 
-.lang-btn{
-background:#00e5ff;
-border:none;
-padding:6px 12px;
-border-radius:20px;
-font-weight:bold;
+.menu-toggle{
+font-size:28px;
+color:#00e5ff;
+cursor:pointer;
+margin-right:10px;
+}
+
+/* SIDE MENU */
+.side-menu{
+position:fixed;
+top:0;
+left:-260px;
+width:260px;
+height:100vh;
+background:rgba(0,0,0,0.95);
+backdrop-filter:blur(10px);
+padding-top:80px;
+display:flex;
+flex-direction:column;
+gap:20px;
+transition:0.3s;
+z-index:2000;
+border-right:2px solid #00e5ff;
+}
+
+.side-menu a{
+color:white;
+text-decoration:none;
+padding:12px 20px;
+font-size:16px;
+border-left:3px solid transparent;
+transition:0.2s;
+}
+
+.side-menu a:hover{
+border-left:3px solid #00e5ff;
+background:rgba(0,229,255,0.1);
+}
+
+.side-menu.active{left:0;}
+
+.close-btn{
+position:absolute;
+top:15px;
+right:20px;
+font-size:30px;
+color:#00e5ff;
 cursor:pointer;
 }
 
 /* HERO */
 .hero{
-height:100vh;
-display:flex;
-align-items:center;
-justify-content:center;
-text-align:center;
-padding:20px;
-position:relative;
+min-height:calc(100vh - 90px);
+display:flex;align-items:center;justify-content:center;
+text-align:center;padding:20px;position:relative;
 }
 
 .hero::before{
-content:"";
-position:absolute;
-inset:0;
+content:"";position:absolute;inset:0;
 background:
 linear-gradient(rgba(5,11,24,0.6),rgba(5,11,24,0.95)),
 url('https://images.unsplash.com/photo-1526498460520-4c246339dccb?auto=format&fit=crop&w=1600&q=80');
-background-size:cover;
-background-position:center;
-z-index:-1;
+background-size:cover;background-position:center;z-index:-1;
 }
 
-.hero h1{
-font-size:3rem;
-color:#00e5ff;
-}
+.hero h1{font-size:3rem;color:#00e5ff;}
 
 .btn{
-padding:12px 28px;
-background:#00e5ff;
-color:#000;
-border-radius:30px;
-text-decoration:none;
-font-weight:600;
-display:inline-block;
+padding:12px 28px;background:#00e5ff;color:#000;
+border-radius:30px;text-decoration:none;font-weight:600;display:inline-block;
 }
 
 /* SECTIONS */
-section{
-padding:85px 8%;
-}
-
-.title{
-text-align:center;
-font-size:2.2rem;
-color:#00e5ff;
-margin-bottom:40px;
-}
+section{padding:85px 8%;}
+.title{text-align:center;font-size:2.2rem;color:#00e5ff;margin-bottom:40px;}
 
 /* ABOUT */
 .about-container{
-display:flex;
-align-items:center;
-gap:25px;
-flex-wrap:wrap;
+display:flex;align-items:center;gap:25px;flex-wrap:wrap;
 justify-content:center;
 }
 
 .about-img{
-width:260px;
-height:260px;
-object-fit:cover;
-border-radius:15px;
+width:260px;height:260px;object-fit:cover;border-radius:15px;
 border:2px solid #00e5ff;
 box-shadow:0 0 20px rgba(0,229,255,0.2);
 transition:0.3s;
 }
 
-.about-img:hover{
-transform:scale(1.05);
-}
+.about-img:hover{transform:scale(1.05);}
 
 .about-container p{
-max-width:600px;
-font-size:16px;
-line-height:1.6;
-color:#ddd;
+max-width:600px;font-size:16px;line-height:1.6;color:#ddd;
 }
 
-/* GRID */
+/* PACKAGES */
 .packages{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
@@ -155,56 +140,17 @@ gap:20px;
 
 .card{
 background:rgba(255,255,255,0.04);
-padding:25px;
-border-radius:15px;
-text-align:center;
+padding:25px;border-radius:15px;text-align:center;
 border:1px solid rgba(0,229,255,0.15);
 cursor:pointer;
 }
 
 /* GALLERY */
-.gallery-wrapper{
-max-width:900px;
-margin:auto;
-overflow:hidden;
-border-radius:15px;
-}
+.gallery-wrapper{max-width:900px;margin:auto;overflow:hidden;border-radius:15px;}
+.gallery-slide{display:none;animation:fade 1s ease;}
+.gallery-slide img{width:100%;height:450px;object-fit:cover;border-radius:15px;}
 
-.gallery-slide{
-display:none;
-animation:fade 1s ease;
-}
-
-.gallery-slide img{
-width:100%;
-height:450px;
-object-fit:cover;
-border-radius:15px;
-}
-
-@keyframes fade{
-from{opacity:0}
-to{opacity:1}
-}
-
-/* PAYMENT IMAGES */
-.card img{
-width:120px;
-height:80px;
-object-fit:contain;
-margin-bottom:10px;
-}
-
-/* HOW TO PAY */
-#howtopay .card{
-text-align:left;
-border-left:4px solid #00e5ff;
-}
-
-#howtopay h3{
-color:#00e5ff;
-margin-bottom:8px;
-}
+@keyframes fade{from{opacity:0}to{opacity:1}}
 
 /* CONTACT */
 .contact{
@@ -215,95 +161,59 @@ gap:15px;
 
 .box{
 background:rgba(255,255,255,0.04);
-padding:18px;
-border-radius:10px;
-text-align:center;
+padding:18px;border-radius:10px;text-align:center;
 }
 
 /* WHATSAPP */
 .whatsapp{
-position:fixed;
-bottom:20px;
-right:20px;
-width:65px;
-height:65px;
-background:#25D366;
-border-radius:50%;
-display:flex;
-align-items:center;
-justify-content:center;
+position:fixed;bottom:20px;right:20px;width:65px;height:65px;
+background:#25D366;border-radius:50%;
+display:flex;align-items:center;justify-content:center;
 box-shadow:0 6px 20px rgba(0,0,0,0.3);
 animation:pulse 1.8s infinite;
 z-index:9999;
 }
 
-.whatsapp img{
-width:32px;
-height:32px;
-}
+.whatsapp img{width:32px;height:32px;}
 
 @keyframes pulse{
 0%{box-shadow:0 0 0 0 rgba(37,211,102,0.7);}
 70%{box-shadow:0 0 0 18px rgba(37,211,102,0);}
 100%{box-shadow:0 0 0 0 rgba(37,211,102,0);}
 }
-
-/* MODAL */
-.modal{
-display:none;
-position:fixed;
-inset:0;
-background:rgba(0,0,0,0.8);
-justify-content:center;
-align-items:center;
-z-index:2000;
-}
-
-.modal-content{
-background:#0b1220;
-padding:25px;
-border-radius:12px;
-width:90%;
-max-width:420px;
-text-align:center;
-border:1px solid #00e5ff;
-position:relative;
-}
-
-.close{
-position:absolute;
-top:10px;
-right:15px;
-font-size:22px;
-cursor:pointer;
-color:white;
-}
-
 </style>
 </head>
 
 <body>
 
+<!-- SIDE MENU -->
+<nav id="sideMenu" class="side-menu">
+<div class="close-btn" onclick="toggleMenu()">×</div>
+
+<a href="#home" onclick="toggleMenu()">Home</a>
+<a href="#about" onclick="toggleMenu()">About</a>
+<a href="#packages" onclick="toggleMenu()">Packages</a>
+<a href="#gallery" onclick="toggleMenu()">Gallery</a>
+<a href="#coverage" onclick="toggleMenu()">Coverage</a>
+<a href="#contact" onclick="toggleMenu()">Contact</a>
+<a href="https://maps.google.com" target="_blank">Location</a>
+</nav>
+
 <!-- HEADER -->
 <header class="header">
-
 <div class="logo-container">
+<div class="menu-toggle" onclick="toggleMenu()">☰</div>
 
-<img src="https://raw.githubusercontent.com/Ferdinand-web/clean-website/main/Logo.jpg"
-class="site-logo">
+<img src="https://raw.githubusercontent.com/Ferdinand-web/clean-website/main/Logo.jpg" class="site-logo" alt="MKONGE NET Logo">
 
-<h1 class="site-title"
-data-en="Mkonge Two Internet Hotspot"
-data-sw="Mkonge Two Internet Hotspot"></h1>
-
+<h1 class="site-title" data-en="Mkonge Two Internet Hotspot" data-sw="Mkonge Two Internet Hotspot"></h1>
 </div>
 
 <button class="lang-btn" onclick="toggleLanguage()">🌐 EN/SW</button>
-
 </header>
 
 <!-- HERO -->
-<section class="hero">
+<section class="hero" id="home">
 <div>
 <h1 data-en="Reliable High-Speed Internet" data-sw="Intaneti ya Kasi na Ubora"></h1>
 <p data-en="Fast ISP services across Dar es Salaam" data-sw="Huduma za intaneti Dar es Salaam"></p>
@@ -315,24 +225,17 @@ data-sw="Mkonge Two Internet Hotspot"></h1>
 <!-- ABOUT -->
 <section id="about">
 <h2 class="title" data-en="About Us" data-sw="Kuhusu Sisi"></h2>
-
 <div class="about-container">
+<img src="https://raw.githubusercontent.com/Ferdinand-web/clean-website/main/Founder.jpg" class="about-img" alt="Founder">
 
-<img src="https://raw.githubusercontent.com/Ferdinand-web/clean-website/main/Founder.jpg"
-class="about-img">
-
-<p 
-data-en="Mkonge Two Internet Hotspot Services provides reliable internet access solutions for homes, businesses and individuals across Dar es Salaam. We focus on fast installation, stable connectivity, and affordable packages."
-data-sw="Mkonge Two Internet Hotspot Services inatoa huduma za intaneti zenye uhakika kwa nyumba, biashara na watu binafsi Dar es Salaam. Tunazingatia usakinishaji wa haraka, mtandao imara na vifurushi nafuu.">
-</p>
-
+<p data-en="Mkonge Two Internet Hotspot Services provides reliable internet access solutions for homes, businesses and individuals across Dar es Salaam. We focus on fast installation, stable connectivity, and affordable packages."
+data-sw="Mkonge Two Internet Hotspot Services inatoa huduma za intaneti zenye uhakika kwa nyumba, biashara na watu binafsi Dar es Salaam. Tunazingatia usakinishaji wa haraka, mtandao imara na vifurushi nafuu."></p>
 </div>
 </section>
 
 <!-- PACKAGES -->
 <section id="packages">
 <h2 class="title" data-en="Packages" data-sw="Vifurushi"></h2>
-
 <div class="packages">
 <div class="card"><h3>Home</h3><p>25,000 TZS</p></div>
 <div class="card"><h3>Business</h3><p>50,000 TZS</p></div>
@@ -343,21 +246,17 @@ data-sw="Mkonge Two Internet Hotspot Services inatoa huduma za intaneti zenye uh
 <!-- GALLERY -->
 <section id="gallery">
 <h2 class="title" data-en="Gallery" data-sw="Picha"></h2>
-
 <div class="gallery-wrapper">
-
 <div class="gallery-slide"><img src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAHOUOnh3avV8L80G6LXSLy5TBe3Fam_uaniW3Ob1HQoSLx6q9NQW5JSnxwwVbQb44NfREXhC-Sdbc9RKoAkizi4pV0DaIxJciSdNTUbIk-dmXWjvl2uLzhYfIhSVSbKNA2A9dTw9XNry1NQ=s1360-w1360-h1020-rw"></div>
 <div class="gallery-slide"><img src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAEbJXYyROePzul_92bohcolRtkJhjBbIA93yhknNXUWnmKDO25qoNirBcLifAAZOJm3T3nTwE_mzuoxgY6bjGVC5XCcVL2zQ20JqDeoPNsQpis-gvdAY-PrVeiUyyMK-myTLss_3tyLliY=w114-h190-n-k-no-nu"></div>
 <div class="gallery-slide"><img src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAGZcRtKmIkBmjVnnnCkn8tPlnxiEjMamIjfNyL4bigpmx6PPb8-V0E-d7oZJoBjZ17FSj9OurhoYc1iHP6r5zkiQzkQv_cKOV-kFrAw5dLC0xZ2KZW5bfmLib-gTeIDZ_KbKeqhrtRCd7nV=s1360-w1360-h1020-rw"></div>
 <div class="gallery-slide"><img src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAFMGKQp5Qh7S4nsP9rrFSmMKh3b22Qty_TcIz0GB1R0ILVRyvhhtODxuuAa4QqvDsL5-i8KrltxPKr6el03FaKloROlvWZ3Uqkj_C95bsHNPSTFcu3Sy_qFnq5lSxOGASu74QMFKX8sNek=s1360-w1360-h1020-rw"></div>
-
 </div>
 </section>
 
 <!-- COVERAGE -->
 <section id="coverage">
 <h2 class="title" data-en="Coverage Area" data-sw="Maeneo ya Huduma"></h2>
-
 <div class="packages">
 <div class="card"><h3>Makumbusho</h3></div>
 <div class="card"><h3>Bunju</h3></div>
@@ -365,87 +264,9 @@ data-sw="Mkonge Two Internet Hotspot Services inatoa huduma za intaneti zenye uh
 </div>
 </section>
 
-<!-- PAYMENT -->
-<section id="payment" style="display:none;">
-<h2 class="title" data-en="Payment Methods" data-sw="Njia za Malipo"></h2>
-
-<div class="packages">
-
-<div class="card" onclick="openPayment('Mixx by Yas',
-'Dial *150*01# → Pay → Mixx → Confirm',
-'Piga *150*01# → Lipa → Mixx → Thibitisha')">
-<img src="https://www.zoomtanzania.net/wp-content/uploads/2025/02/Mixx_by_Yas-860x645-1.jpg">
-<h3>Mixx by Yas</h3>
-</div>
-
-<div class="card" onclick="openPayment('M-Pesa',
-'Dial *150*00# → Pay Bill → Confirm',
-'Piga *150*00# → Malipo → Thibitisha')">
-<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMuF2npL5pnrypsU-HRHvyrukkz4BgTN3qcg&s">
-<h3>M-Pesa</h3>
-</div>
-
-<div class="card" onclick="openPayment('Airtel Money',
-'Dial *150*60# → Pay Bill → Confirm',
-'Piga *150*60# → Malipo → Thibitisha')">
-<img src="https://clickpesa.com/wp-content/uploads/2024/08/airtel-money-logo.png">
-<h3>Airtel Money</h3>
-</div>
-
-<div class="card" onclick="openPayment('Halo Pesa',
-'Dial *150*88# → Pay Bill → Confirm',
-'Piga *150*88# → Malipo → Thibitisha')">
-<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNccERdOLP1R2IB68_GpK9Dj_hoA1Dae5wJA&s">
-<h3>Halo Pesa</h3>
-</div>
-
-<div class="card">
-<div style="font-size:40px;">💰</div>
-<h3 data-en="Cash Payment" data-sw="Malipo ya Pesa"></h3>
-</div>
-
-</div>
-</section>
-
-<!-- HOW TO PAY -->
-<section id="howtopay">
-
-<h2 class="title" data-en="How to Pay & Get Wi-Fi Access" data-sw="Jinsi ya Kulipia na Kupata Wi-Fi"></h2>
-
-<div class="packages">
-
-<div class="card">
-<h3 data-en="Step 1" data-sw="Hatua ya 1"></h3>
-<p data-en="Connect to Wi-Fi network." data-sw="Unganisha kwenye Wi-Fi."></p>
-</div>
-
-<div class="card">
-<h3 data-en="Step 2" data-sw="Hatua ya 2"></h3>
-<p data-en="Open login page." data-sw="Fungua ukurasa wa login."></p>
-</div>
-
-<div class="card">
-<h3 data-en="Step 3" data-sw="Hatua ya 3"></h3>
-<p data-en="Select package and pay." data-sw="Chagua kifurushi na lipa."></p>
-</div>
-
-<div class="card">
-<h3 data-en="Step 4" data-sw="Hatua ya 4"></h3>
-<p data-en="Enter phone and PIN." data-sw="Weka namba na PIN."></p>
-</div>
-
-<div class="card">
-<h3 data-en="Step 5" data-sw="Hatua ya 5"></h3>
-<p data-en="Start browsing instantly." data-sw="Anza kutumia intaneti mara moja."></p>
-</div>
-
-</div>
-</section>
-
 <!-- CONTACT -->
 <section id="contact">
 <h2 class="title" data-en="Contact" data-sw="Mawasiliano"></h2>
-
 <div class="contact">
 <div class="box">📞 0658 410 470</div>
 <div class="box">📍 Dar es Salaam</div>
@@ -454,54 +275,53 @@ data-sw="Mkonge Two Internet Hotspot Services inatoa huduma za intaneti zenye uh
 </section>
 
 <!-- WHATSAPP -->
-<a class="whatsapp" href="https://wa.me/255658410470?text=Hello%20MKONGE%20NET%20I%20need%20internet">
-<img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg">
+<a class="whatsapp" href="https://wa.me/255658410470?text=Hello%20MKONGE%20NET%20I%20need%20internet" target="_blank" rel="noopener noreferrer">
+<img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
 </a>
 
 <script>
-
-/* LANGUAGE FIX */
 let lang = "en";
 
 function applyLanguage(){
-document.querySelectorAll("[data-en]").forEach(el=>{
-el.innerText = el.getAttribute("data-"+lang);
-});
+ document.querySelectorAll("[data-en]").forEach(el=>{
+   const text = el.getAttribute("data-" + lang);
+   if(text) el.textContent = text;
+ });
 }
 
 function toggleLanguage(){
-lang = (lang === "en") ? "sw" : "en";
-applyLanguage();
+ lang = (lang === "en") ? "sw" : "en";
+ applyLanguage();
 }
 
-window.addEventListener("DOMContentLoaded", applyLanguage);
+function toggleMenu(){
+ document.getElementById("sideMenu").classList.toggle("active");
+}
 
-/* GALLERY */
 let index = 0;
-const slides = document.querySelectorAll(".gallery-slide");
+let slides = [];
 
 function show(){
-slides.forEach(s=>s.style.display="none");
-slides[index].style.display="block";
+ if(!slides.length) return;
+ slides.forEach(s => s.style.display = "none");
+ slides[index].style.display = "block";
 }
 
-setInterval(()=>{
-index++;
-if(index>=slides.length) index=0;
-show();
-},3000);
+window.addEventListener("DOMContentLoaded",()=>{
+ applyLanguage();
 
-show();
+ slides = document.querySelectorAll(".gallery-slide");
 
-/* PAYMENT MODAL */
-function openPayment(title,enText,swText){
-alert(title + "\n\n" + (lang==="en"?enText:swText));
-}
-
-<script>
-if(localStorage.getItem("loggedIn") !== "true") {
-  window.location.href = "login.html";
-}
+ if(slides.length){
+   show();
+   setInterval(()=>{
+     index++;
+     if(index >= slides.length) index = 0;
+     show();
+   },3000);
+ }
+});
 </script>
+
 </body>
 </html>
